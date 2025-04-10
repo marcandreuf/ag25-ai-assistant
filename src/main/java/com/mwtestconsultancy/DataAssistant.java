@@ -31,6 +31,7 @@ public class DataAssistant {
             String query = scanner.nextLine();
             String response = dataAssistantChat.sendPrompt(query);
             System.out.println(response);
+            scanner.close();
         }
     }
 
