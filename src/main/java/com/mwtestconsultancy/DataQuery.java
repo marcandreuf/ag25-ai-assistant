@@ -141,4 +141,58 @@ public class DataQuery {
             }
         }
     }
+
+    public int countTableRows(String tableName) {
+        Statement statement = null;
+        try {
+            statement = connection.createStatement();
+            ResultSet rs1 = statement.executeQuery(String.format("SELECT COUNT(*) FROM %s", tableName));
+            rs1.next();
+            int roomCount = rs1.getInt(1);
+            rs1.close();
+            return roomCount;
+        } catch (SQLException e) {            
+            e.printStackTrace();
+            return -1;            
+        }finally{
+            try {
+                if (statement != null) statement.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    public void resetDB() {
+        Statement statement = null;
+        try {
+            // Disable foreign key checks temporarily
+            statement = connection.createStatement();
+            statement.execute("SET REFERENTIAL_INTEGRITY FALSE");
+            
+            statement.executeUpdate("TRUNCATE TABLE BOOKINGS");
+            statement.executeUpdate("TRUNCATE TABLE ROOMS");
+            
+            // Reset auto-increment columns
+            statement.executeUpdate("ALTER TABLE BOOKINGS ALTER COLUMN bookingid RESTART WITH 1");
+            statement.executeUpdate("ALTER TABLE ROOMS ALTER COLUMN roomid RESTART WITH 1");
+            
+            // Re-enable foreign key checks
+            statement.execute("SET REFERENTIAL_INTEGRITY TRUE");
+            
+            connection.commit();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                if (statement != null) statement.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    public Connection getConnection() {
+        return connection;
+    }
 }

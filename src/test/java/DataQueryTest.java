@@ -2,6 +2,7 @@ import com.mwtestconsultancy.DataQuery;
 import com.mwtestconsultancy.models.Booking;
 import com.mwtestconsultancy.models.Room;
 import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.sql.SQLException;
@@ -16,6 +17,16 @@ public class DataQueryTest {
     @BeforeAll
     public static void setup() throws SQLException {
         dataQuery = new DataQuery();
+    }
+
+    @BeforeEach
+    public void setUpTest() throws SQLException {
+        dataQuery.resetDB();
+ 
+        int roomCount = dataQuery.countTableRows("ROOMS");
+        int bookingCount = dataQuery.countTableRows("BOOKINGS");
+        assert roomCount == 0 : "ROOMS table not empty after reset";
+        assert bookingCount == 0 : "BOOKINGS table not empty after reset";
     }
 
     @Test
