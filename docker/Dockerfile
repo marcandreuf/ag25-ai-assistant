@@ -1,7 +1,7 @@
 FROM eclipse-temurin:21-jdk-noble
 
 RUN apt-get update && apt-get upgrade -y &&\
-    apt-get install -y curl maven
+    apt-get install -y curl maven openssh-client
 
 # Adding node to sudoers to make locla dev en more flexible for tesing new configurations.
 RUN adduser ubuntu sudo
