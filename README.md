@@ -2,6 +2,30 @@
 
 This repo is my frok from the [mwinteringham/ag25-ai-assistant](https://github.com/mwinteringham/ag25-ai-assistant). I use this repo to learn and practice experiments about Ai Agents in JAVA. 
 
+## How this demo Ai Agent works:
+
+<p align="center">
+    <img src="docs/seq-diagram.png" alt="Architecture Design Sequence Diagram" width="80%">
+</p>
+
+This diagram illustrates the core workflow of the AI Assistant:
+
+Flow Example:
+
+1. User Query: User asks "Create a single room with 1 bed for $100 per night"
+
+2. AI Processing:
+    - OpenAI processes the natural language request
+    - Identifies the intent to create a room
+    - Extracts relevant parameters (type=single, beds=1, price=100)
+
+3. Tool Execution:
+    - AI calls the appropriate tool method: `createRoom("Single", 1, "A single room with one bed", 100)`
+    - The tool method interacts with the database through DataQuery
+
+4. Response: The operation result is returned to the user.
+
+
 
 ## Added features:
 
