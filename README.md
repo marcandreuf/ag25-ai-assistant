@@ -25,6 +25,66 @@ This repo is my frok from the [mwinteringham/ag25-ai-assistant](https://github.c
 * **Added Retries logic with resilience4j**
     * Added retry mechanisms to recover from rate limiting errors
     * Configured fallback strategies
+
+
+## How to Run the Project
+
+### Prerequisites
+- Visual Studio Code or IntelliJ IDEA
+- Docker Desktop installed and running
+- Git client
+
+### Setup Steps
+
+1. Clone the repository:
+    ```bash
+    git clone https://github.com/marcandreuf/ag25-ai-assistant.git
+    cd ag25-ai-assistant
+    ```
+
+2. Open in Development Environment:
+    - **VS Code:**
+      - Install the Dev Containers extension, code: "ms-vscode-remote.remote-containers".
+      - Open the project folder
+      - Click `Dev Containers: Reopen in Container` when prompted
+    - **IntelliJ IDEA:**
+      - Open the project
+      - Select "Open in Dev Container" if prompted
+
+3. Navigate to Main Class:
+    - Locate `com.mwtestconsultancy.DataAssistant` in the project explorer
+    - This is the main entry point of the application
+
+4. Run the Application:
+    - In VS Code: Click the "Run" icon (▶️) in the top right
+    - In IntelliJ: Click the green "Run" arrow next to the main method
+
+5. Interact with the LLM:
+    Once the application is running, you can enter commands in the terminal:
+
+    Example commands:
+    - `List the rooms`
+    - `Create 2 rooms with 2 beds`
+    - `Create a booking`
+    - `Show all bookings`
+    - `Delete a booking`
+
+
+### Troubleshooting
+
+1. For specific issues:
+    - Open an issue in the GitHub repository
+    - Include error messages and steps to reproduce
+    - Add relevant environment details
+
+
+
+
+    
+
+
+
+
     
 
 
