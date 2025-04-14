@@ -41,14 +41,29 @@ public class DataAssistantTools {
         dataQuery.createBooking(booking);
     }
 
-    @Tool("Show results of database")
+    @Tool("Show results of database. Show the overall state of tables of the database")
     public void displayDatabase() throws SQLException {
-        // Output all data from the ROOMS table
+        printRooms();
+        printBookings();
+    }
+
+    @Tool("Show the current rooms state of the database") 
+    public void displayRooms() throws SQLException {        
+        printRooms();
+    }
+
+    @Tool("Show the current bookings state of the database")
+    public void displayBookings() throws SQLException {
+        printBookings();
+    }
+
+    private void printRooms() throws SQLException {        
         String roomResult = dataQuery.outputTables("SELECT * FROM ROOMS");
         System.out.println("Agent: Current ROOM database state:");
         System.out.println(roomResult);
+    }
 
-        // Output all data from the BOOKINGS table
+    private void printBookings() throws SQLException {
         String bookingResult = dataQuery.outputTables("SELECT * FROM BOOKINGS");
         System.out.println("Agent: Current BOOKING database state:");
         System.out.println(bookingResult);

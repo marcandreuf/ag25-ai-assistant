@@ -50,6 +50,11 @@ Flow Example:
     * Added retry mechanisms to recover from rate limiting errors
     * Configured fallback strategies
 
+* Expanded the AI tools.
+    * Added a show rooms functions
+    * Added a show bookings functions
+    * These extra tools allow testing the behaviour of the LLM for close semantic requests.
+    
 
 ## How to Run the Project
 
@@ -92,6 +97,8 @@ Flow Example:
     - `Create a booking`
     - `Show all bookings`
     - `Delete a booking`
+
+6. Exit the app, type `q` or `exit`
 
 
 ### Troubleshooting

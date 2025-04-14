@@ -60,6 +60,15 @@ public class DataAssistant {
         scanner.close();
     }
 
+    /**
+     * Sends a prompt to the DataAssistantService with retry logic.
+     *
+     * TODO: Refactor and clean up this method with SOLID principles.
+     * 
+     * @param service The DataAssistantService instance.
+     * @param query   The user query.
+     * @return The response from the service.
+     */
     private static String sendPromptWithRetry(DataAssistantService service, String query) {
         IntervalFunction intervalWithCustomExponentialBackoff = IntervalFunction
                 .ofExponentialBackoff(Duration.ofSeconds(60).toMillis(), 2.0);
