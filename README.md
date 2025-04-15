@@ -71,7 +71,16 @@ Flow Example:
     cd ag25-ai-assistant
     ```
 
-2. Open in Development Environment:
+2. Configure OpenAI API Key:
+    ```bash
+    cp docker/.env.dist docker/.env
+    ```
+    Edit `docker/.env` and add your OpenAI API key:
+    ```
+    OPENAI_API_KEY=your-api-key-here
+    ```
+
+3. Open in Development Environment:
     - **VS Code:**
       - Install the Dev Containers extension, code: "ms-vscode-remote.remote-containers".
       - Open the project folder
@@ -80,15 +89,15 @@ Flow Example:
       - Open the project
       - Select "Open in Dev Container" if prompted
 
-3. Navigate to Main Class:
+4. Navigate to Main Class:
     - Locate `com.mwtestconsultancy.DataAssistant` in the project explorer
     - This is the main entry point of the application
 
-4. Run the Application:
+5. Run the Application:
     - In VS Code: Click the "Run" icon (▶️) in the top right
     - In IntelliJ: Click the green "Run" arrow next to the main method
 
-5. Interact with the LLM:
+6. Interact with the LLM:
     Once the application is running, you can enter commands in the terminal:
 
     Example commands:
@@ -98,7 +107,7 @@ Flow Example:
     - `Show all bookings`
     - `Delete a booking`
 
-6. Exit the app, type `q` or `exit`
+7. Exit the app, type `q` or `exit`
 
 
 ### Troubleshooting
@@ -107,17 +116,4 @@ Flow Example:
     - Open an issue in the GitHub repository
     - Include error messages and steps to reproduce
     - Add relevant environment details
-
-
-
-
-    
-
-
-
-
-    
-
-
-
 
